@@ -53,7 +53,7 @@ ext {
     lifecycleViewModelKtxVersion = '2.3.0-alpha01'
     lifecycleVersion = '2.2.0'
     roomVersion = '2.2.3'
-    dataBindingVersion = '3.6.1'
+    dataBindingVersion = '4.1.2'
     shadowViewVersion = '0.0.3'
     algoliaVersion = '3.+'
     moshiConverterVersion = '2.7.2'
