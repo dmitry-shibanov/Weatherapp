@@ -54,21 +54,21 @@ project.afterEvaluate {
 
             def javaClasses = fileTree(dir: variant.javaCompiler.destinationDir, excludes: excludes)
             def kotlinClasses = fileTree(dir: "${buildDir}/tmp/kotlin-classes/${variantName}", excludes: excludes)
-            classDirectories = files([javaClasses, kotlinClasses])
+            getClassDirectories().setFrom(files([javaClasses, kotlinClasses]))
 
-            sourceDirectories = files([
+            getSourceDirectories().setFrom(files([
                     "$project.projectDir/src/main/java",
                     "$project.projectDir/src/${variantName}/java",
                     "$project.projectDir/src/main/kotlin",
                     "$project.projectDir/src/${variantName}/kotlin"
-            ])
+            ]))
 
-            executionData = files("${project.buildDir}/jacoco/${testTaskName}.exec")
+            getExecutionData().setFrom(files("${project.buildDir}/jacoco/${testTaskName}.exec"))
 
-            executionData = fileTree(dir: "$buildDir", includes: [
+            getExecutionData().setFrom(fileTree(dir: "$buildDir", includes: [
                 "${project.buildDir}/jacoco/${testTaskName}.exec",
                 "outputs/code_coverage/debugAndroidTest/connected/*coverage.ec"
-            ])
+            ]))
         }
     }
 }
