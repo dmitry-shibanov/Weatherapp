@@ -26,6 +26,12 @@ repositories {
     maven { url 'https://maven.google.com' }
 }
 
+kapt{
+    javacOptions {
+        option("--module-path", compileJava.classpath.asPath)
+    }
+}
+
 android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
